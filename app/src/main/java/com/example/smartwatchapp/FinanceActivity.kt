@@ -1,9 +1,18 @@
 package com.example.smartwatchapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.support.wearable.activity.WearableActivity
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
+import kotlinx.android.synthetic.main.activity_finance.*
 
-class FinanceActivity : AppCompatActivity() {
+class FinanceActivity : WearableActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finance)
@@ -17,7 +26,8 @@ class FinanceActivity : AppCompatActivity() {
         patientsChart.setUsePercentValues(true)
         patientsChart.description.isEnabled = false;
         patientsChart.setNoDataText("No Expenses Found")
-        patientsChart.setExtraOffsets(5F, 10F, 5F, 5F)
+        patientsChart.setExtraOffsets(5F, 5F, 5F, 5F)
+
         patientsChart.setDrawEntryLabels(true)
 
         patientsChart.setDrawMarkers(true)
@@ -31,14 +41,16 @@ class FinanceActivity : AppCompatActivity() {
         patientsChart.legend.setDrawInside(false);
         patientsChart.legend.form = Legend.LegendForm.CIRCLE
         patientsChart.legend.formSize = 10f
-        patientsChart.legend.setXEntrySpace(12f)
+        patientsChart.legend.setXEntrySpace(5f)
+        patientsChart.legend.xOffset = -5f
+        patientsChart.legend.yOffset = 10f
         patientsChart.dragDecelerationFrictionCoef = 0.95F
         patientsChart.animateY(1000, Easing.EaseInOutCubic)
 
         patientsChart.isDrawHoleEnabled = true
         patientsChart.setHoleColor(Color.TRANSPARENT)
         patientsChart.holeRadius = 60F
-        patientsChart.transparentCircleRadius = 47F
+        patientsChart.transparentCircleRadius = 20F
         patientsChart.setDrawCenterText(true)
 
         val yValues = mutableListOf<PieEntry>()
