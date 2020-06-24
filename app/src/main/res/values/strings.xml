@@ -6,4 +6,7 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="gotofinance">gotofinance</string>
+    <string name="image" />
+    <string name="emp_name">Employee Name</string>
+    <string name="emp_description">employee description message</string>
 </resources>
